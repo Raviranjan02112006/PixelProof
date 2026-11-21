@@ -1,10 +1,33 @@
+
+# PixelProof - AI Generated Image Detection
+# Flask web application
 Flask
-Pillow
-numpy
-matplotlib
-opencv-python
-scipy
-scikit-image
 gunicorn
+
+# Image processing
+numpy
+Pillow
+matplotlib
+opencv-python-headless
+scipy
+
+# Data processing and mathematical models
+pandas
+joblib
+scikit-learn
+
+# Deep learning - ResNet50 CNN
+tensorflow
+
+# PyTorch - Depth Anything / deep learning pipeline
 torch
+torchvision
 transformers
+timm
+safetensors
+huggingface-hub
+einops
+
+# Utilities
+requests
+tqdm
