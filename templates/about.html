@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About PixelProof | AI Image Detection</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+        <a href="/" class="logo">
+            <span class="logo-icon">✦</span>
+            PixelProof
+        </a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#detector">AI Detector</a>
+            <a href="/#analysis">Analysis</a>
+            <a href="{{ url_for('about') }}">About</a>
+        </div>
+
+        <a href="/#detector" class="nav-button">
+            Try Detector ↗
+        </a>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                ABOUT OUR PROJECT
+            </div>
+
+            <h1>
+                Understanding <br>
+                <span>PixelProof.</span>
+            </h1>
+
+            <p>
+                PixelProof is an AI-generated image detection
+                system that combines mathematical image analysis,
+                machine learning and deep learning to investigate
+                whether a digital image is real or AI-generated.
+            </p>
+
+            <a href="/#detector" class="primary-button">
+                Try PixelProof →
+            </a>
+
+        </div>
+
+        <div class="hero-visual">
+
+            <div class="glow-circle"></div>
+
+            <div class="visual-card">
+
+                <div class="scan-header">
+                    <span>PIXELPROOF SYSTEM</span>
+                    <span class="live-dot">● ACTIVE</span>
+                </div>
+
+                <div class="scan-image">
+
+                    <div class="scan-symbol">✧</div>
+
+                    <div class="scan-line"></div>
+
+                    <span>IMAGE INTELLIGENCE</span>
+
+                </div>
+
+                <div class="scan-footer">
+                    <span>Mathematics + AI</span>
+                    <span>Image Verification</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECT INTRODUCTION -->
+
+    <section class="technology-section">
+
+        <div class="section-heading">
+
+            <div class="tag">
+                PROJECT OVERVIEW
+            </div>
+
+            <h2>
+                What is <span>PixelProof?</span>
+            </h2>
+
+            <p>
+                An experimental approach to identifying
+                AI-generated images through multiple
+                computational techniques.
+            </p>
+
+        </div>
+
+        <div class="analysis-card">
+
+            <h3>Introduction</h3>
+
+            <p>
+                The rapid development of generative artificial
+                intelligence has made it increasingly easy to
+                create realistic synthetic images. These images
+                can sometimes be difficult to distinguish from
+                authentic photographs through visual inspection
+                alone.
+            </p>
+
+            <p>
+                PixelProof explores this challenge by examining
+                different image characteristics, including
+                frequency patterns, pixel correlations,
+                spatial structures, statistical features
+                and learned visual representations.
+            </p>
+
+            <p>
+                The project combines eight individual
+                mathematical and machine-learning models
+                into a weighted ensemble and evaluates the
+                image separately using a trained ResNet50
+                Convolutional Neural Network.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- OBJECTIVES -->
+
+    <section class="technology-section">
+
+        <div class="section-heading">
+
+            <div class="tag">
+                PROJECT OBJECTIVES
+            </div>
+
+            <h2>
+                What We <span>Explore</span>
+            </h2>
+
+        </div>
+
+        <div class="technology-grid">
+
+            <div class="tech-card">
+                <div class="tech-icon purple">01</div>
+                <h3>Mathematical Analysis</h3>
+                <p>
+                    Investigate frequency-domain,
+                    pixel-level, spatial and
+                    depth-related image characteristics.
+                </p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon blue">02</div>
+                <h3>Machine Learning</h3>
+                <p>
+                    Evaluate multiple statistical
+                    and machine-learning models
+                    using extracted image features.
+                </p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon pink">03</div>
+                <h3>Deep Learning</h3>
+                <p>
+                    Use a trained ResNet50 CNN to
+                    learn visual representations
+                    for image classification.
+                </p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon green">04</div>
+                <h3>Hybrid Detection</h3>
+                <p>
+                    Combine mathematical ensemble
+                    evidence and CNN output into
+                    a final prediction.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MATHEMATICAL METHODS -->
+
+    <section class="technology-section">
+
+        <div class="section-heading">
+
+            <div class="tag">
+                MATHEMATICAL FOUNDATION
+            </div>
+
+            <h2>
+                Image <span>Analysis Techniques</span>
+            </h2>
+
+        </div>
+
+        <div class="analysis-grid">
+
+            <div class="analysis-card">
+
+                <div class="analysis-number">METHOD 01</div>
+
+                <h3>Fourier Transform</h3>
+
+                <p>
+                    Two-dimensional Fourier Transform
+                    is used to examine frequency-domain
+                    characteristics of an image.
+                </p>
+
+                <p>
+                    Features include frequency magnitude,
+                    low-frequency energy, high-frequency
+                    energy and spectral entropy.
+                </p>
+
+            </div>
+
+            <div class="analysis-card">
+
+                <div class="analysis-number">METHOD 02</div>
+
+                <h3>Pixel Correlation</h3>
+
+                <p>
+                    Correlation analysis investigates
+                    statistical relationships between
+                    neighbouring pixels.
+                </p>
+
+                <p>
+                    Horizontal, vertical and diagonal
+                    correlations and local variance
+                    characteristics are examined.
+                </p>
+
+            </div>
+
+            <div class="analysis-card">
+
+                <div class="analysis-number">METHOD 03</div>
+
+                <h3>Spatial Analysis</h3>
+
+                <p>
+                    Spatial features are extracted
+                    using image gradients, edge density,
+                    intensity statistics and gradient
+                    direction histograms.
+                </p>
+
+            </div>
+
+            <div class="analysis-card">
+
+                <div class="analysis-number">METHOD 04</div>
+
+                <h3>Relative Depth Estimation</h3>
+
+                <p>
+                    Depth Anything V2 is used to estimate
+                    relative depth information from
+                    a single image.
+                </p>
+
+                <p>
+                    The estimated depth map is used
+                    to calculate statistical depth
+                    and depth-gradient features.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EIGHT MODELS -->
+
+    <section class="technology-section">
+
+        <div class="section-heading">
+
+            <div class="tag">
+                MATHEMATICAL MODEL SYSTEM
+            </div>
+
+            <h2>
+                Eight Individual <span>Models</span>
+            </h2>
+
+            <p>
+                The mathematical prediction system
+                evaluates extracted features using
+                eight separate models.
+            </p>
+
+        </div>
+
+        <div class="analysis-card">
+
+            <div class="table-responsive">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Model</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>01</td>
+                            <td>Logistic Regression</td>
+                            <td>Machine Learning</td>
+                        </tr>
+
+                        <tr>
+                            <td>02</td>
+                            <td>Random Forest</td>
+                            <td>Machine Learning</td>
+                        </tr>
+
+                        <tr>
+                            <td>03</td>
+                            <td>Support Vector Machine</td>
+                            <td>Machine Learning</td>
+                        </tr>
+
+                        <tr>
+                            <td>04</td>
+                            <td>Gradient Boosting</td>
+                            <td>Machine Learning</td>
+                        </tr>
+
+                        <tr>
+                            <td>05</td>
+                            <td>MDMD-35</td>
+                            <td>Statistical / Mathematical</td>
+                        </tr>
+
+                        <tr>
+                            <td>06</td>
+                            <td>ZS-35</td>
+                            <td>Statistical / Mathematical</td>
+                        </tr>
+
+                        <tr>
+                            <td>07</td>
+                            <td>EDS-35</td>
+                            <td>Statistical / Mathematical</td>
+                        </tr>
+
+                        <tr>
+                            <td>08</td>
+                            <td>CFS-35</td>
+                            <td>Statistical / Mathematical</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p>
+                The individual model outputs are combined
+                using validation-based performance weights
+                and weighted soft voting.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- DEEP LEARNING -->
+
+    <section class="technology-section">
+
+        <div class="section-heading">
+
+            <div class="tag">
+                DEEP LEARNING ARCHITECTURE
+            </div>
+
+            <h2>
+                ResNet50 <span>CNN</span>
+            </h2>
+
+            <p>
+                An independent deep-learning approach
+                for image classification.
+            </p>
+
+        </div>
+
+        <div class="analysis-card">
+
+            <h3>Convolutional Neural Network</h3>
+
+            <p>
+                PixelProof uses a ResNet50 architecture
+                with pretrained ImageNet weights and
+                a custom classification head.
+            </p>
+
+            <p>
+                The model receives resized 224 × 224
+                RGB images and produces a classification
+                score for REAL and FAKE categories.
+            </p>
+
+            <p>
+                Its prediction is evaluated independently
+                from the mathematical ensemble before
+                the two outputs are combined.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- HYBRID APPROACH -->
+
+    <section class="technology-section">
+
+        <div class="section-heading">
+
+            <div class="tag">
+                FINAL DETECTION APPROACH
+            </div>
+
+            <h2>
+                Hybrid <span>Prediction System</span>
+            </h2>
+
+            <p>
+                Two independent approaches contribute
+                to the final classification.
+            </p>
+
+        </div>
+
+        <div class="technology-grid">
+
+            <div class="tech-card">
+
+                <div class="tech-icon purple">01</div>
+
+                <h3>Mathematical Ensemble</h3>
+
+                <p>
+                    Combines eight individual model
+                    outputs through validation-based
+                    weighted soft voting.
+                </p>
+
+            </div>
+
+            <div class="tech-card">
+
+                <div class="tech-icon blue">02</div>
+
+                <h3>ResNet50 CNN</h3>
+
+                <p>
+                    Produces an independent
+                    deep-learning classification
+                    score for the uploaded image.
+                </p>
+
+            </div>
+
+            <div class="tech-card">
+
+                <div class="tech-icon green">03</div>
+
+                <h3>Final Hybrid Verdict</h3>
+
+                <p>
+                    Combines the mathematical and CNN
+                    evidence to produce the final
+                    REAL or FAKE prediction.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LIMITATIONS -->
+
+    <section class="technology-section">
+
+        <div class="section-heading">
+
+            <div class="tag">
+                RESEARCH LIMITATIONS
+            </div>
+
+            <h2>
+                Understanding <span>the Results</span>
+            </h2>
+
+        </div>
+
+        <div class="analysis-card">
+
+            <h3>Important Considerations</h3>
+
+            <ul>
+                <li>
+                    Model predictions are based on
+                    learned patterns and extracted features.
+                </li>
+
+                <li>
+                    Mathematical evidence percentages
+                    are not necessarily calibrated probabilities.
+                </li>
+
+                <li>
+                    Relative depth estimation does not
+                    provide actual physical distance.
+                </li>
+
+                <li>
+                    Image compression, resizing and
+                    unfamiliar image-generation methods
+                    may affect prediction performance.
+                </li>
+
+                <li>
+                    The system provides an experimental
+                    classification, not a guarantee of
+                    image authenticity.
+                </li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            PixelProof
+        </div>
+
+        <p>
+            AI-Generated Image Detection Using Deep Learning
+        </p>
+
+        <p class="copyright">
+            © 2026 PixelProof | Academic Project
+        </p>
+
+    </footer>
+
+</body>
+</html>

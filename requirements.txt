@@ -1,0 +1,10 @@
+Flask
+Pillow
+numpy
+matplotlib
+opencv-python
+scipy
+scikit-image
+gunicorn
+torch
+transformers

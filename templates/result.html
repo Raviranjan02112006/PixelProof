@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Analysis Result | PixelProof</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+        <a href="/" class="logo">
+            <span class="logo-icon">✦</span>
+            PixelProof
+        </a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#detector">AI Detector</a>
+            <a href="/#analysis">Analysis</a>
+            <a href="{{ url_for('about') }}">About</a>
+        </div>
+
+        <a href="/#detector" class="nav-button">
+            Analyse Another Image ↗
+        </a>
+
+    </nav>
+
+
+    <!-- RESULT HERO -->
+
+    <section class="technology-section">
+
+        <div class="section-heading">
+
+            <div class="tag">
+                PIXELPROOF ANALYSIS REPORT
+            </div>
+
+            <h2>
+                Image <span>Detection Result</span>
+            </h2>
+
+            <p>
+                Complete mathematical and deep-learning
+                analysis of the uploaded image.
+            </p>
+
+        </div>
+
+
+        <!-- FINAL VERDICT -->
+
+        <div class="analysis-card hybrid-result-card">
+
+            <div class="analysis-number">
+                FINAL HYBRID CLASSIFICATION
+            </div>
+
+            <h3>
+                Final Prediction
+            </h3>
+
+            <div class="result-icon">
+                ✧
+            </div>
+
+            <h2 id="resultPrediction">
+                {{ result.final_prediction if result else "Result unavailable" }}
+            </h2>
+
+            <p id="resultDescription">
+                The final classification combines
+                mathematical ensemble evidence and
+                ResNet50 CNN evidence.
+            </p>
+
+            <div class="prediction-metrics">
+
+                <div class="metric-box">
+
+                    <h4>REAL Evidence</h4>
+
+                    <div class="metric-value">
+                        {{ result.hybrid_real_evidence_percentage if result else "--" }}%
+                    </div>
+
+                </div>
+
+                <div class="metric-box">
+
+                    <h4>FAKE Evidence</h4>
+
+                    <div class="metric-value">
+                        {{ result.hybrid_fake_evidence_percentage if result else "--" }}%
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="analysis-details">
+
+                Hybrid Threshold:
+
+                <strong>
+                    {{ result.hybrid_threshold if result else "--" }}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- IMAGE INFORMATION -->
+
+        <div class="analysis-card">
+
+            <div class="analysis-number">
+                IMAGE INFORMATION
+            </div>
+
+            <h3>Uploaded Image</h3>
+
+            {% if image_url %}
+
+                <img
+                    src="{{ image_url }}"
+                    alt="Analysed uploaded image"
+                    style="max-width: 100%; max-height: 400px; object-fit: contain;"
+                >
+
+            {% else %}
+
+                <p>Image preview is not available.</p>
+
+            {% endif %}
+
+            <div class="analysis-details">
+
+                Analysis ID:
+
+                <strong>
+                    {{ analysis_id if analysis_id else "Not available" }}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- MATHEMATICAL ENSEMBLE -->
+
+        <div class="analysis-card">
+
+            <div class="analysis-number">
+                PREDICTION STAGE 01
+            </div>
+
+            <h3>Mathematical Ensemble</h3>
+
+            <p>
+                The eight mathematical models are
+                combined using validation-based
+                weighted soft voting.
+            </p>
+
+            <div class="prediction-metrics">
+
+                <div class="metric-box">
+
+                    <h4>REAL Support</h4>
+
+                    <div class="metric-value">
+
+                        {{ result.mathematical_result.real_support_percentage
+                           if result else "--" }}%
+
+                    </div>
+
+                </div>
+
+                <div class="metric-box">
+
+                    <h4>FAKE Support</h4>
+
+                    <div class="metric-value">
+
+                        {{ result.mathematical_result.fake_support_percentage
+                           if result else "--" }}%
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="analysis-details">
+
+                Mathematical Prediction:
+
+                <strong>
+
+                    {{ result.mathematical_result.prediction
+                       if result else "Not available" }}
+
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- INDIVIDUAL MODELS -->
+
+        <div class="analysis-card">
+
+            <div class="analysis-number">
+                PREDICTION STAGE 02
+            </div>
+
+            <h3>Individual Model Results</h3>
+
+            <p>
+                Individual outputs from the eight
+                mathematical and machine-learning models.
+            </p>
+
+            <div class="table-responsive">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Model</th>
+                            <th>FAKE Evidence</th>
+                            <th>REAL Evidence</th>
+                            <th>Weight</th>
+                            <th>Prediction</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% if result and result.mathematical_result.individual_models %}
+
+                            {% for name, model in result.mathematical_result.individual_models.items() %}
+
+                                <tr>
+
+                                    <td>{{ name }}</td>
+
+                                    <td>
+                                        {{ model.fake_evidence_percentage }}%
+                                    </td>
+
+                                    <td>
+                                        {{ model.real_evidence_percentage }}%
+                                    </td>
+
+                                    <td>
+                                        {{ model.weight_percentage }}%
+                                    </td>
+
+                                    <td>
+                                        {{ model.prediction }}
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <tr>
+                                <td colspan="5">
+                                    Individual model results are unavailable.
+                                </td>
+                            </tr>
+
+                        {% endif %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- CNN RESULT -->
+
+        <div class="analysis-card">
+
+            <div class="analysis-number">
+                PREDICTION STAGE 03
+            </div>
+
+            <h3>ResNet50 CNN Prediction</h3>
+
+            <p>
+                Independent prediction from the trained
+                Convolutional Neural Network.
+            </p>
+
+            <div class="prediction-metrics">
+
+                <div class="metric-box">
+
+                    <h4>REAL Evidence</h4>
+
+                    <div class="metric-value">
+
+                        {{ result.cnn_result.real_evidence_percentage
+                           if result else "--" }}%
+
+                    </div>
+
+                </div>
+
+                <div class="metric-box">
+
+                    <h4>FAKE Evidence</h4>
+
+                    <div class="metric-value">
+
+                        {{ result.cnn_result.fake_evidence_percentage
+                           if result else "--" }}%
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="analysis-details">
+
+                CNN Prediction:
+
+                <strong>
+
+                    {{ result.cnn_result.prediction
+                       if result else "Not available" }}
+
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- MODEL AGREEMENT -->
+
+        <div class="analysis-card">
+
+            <div class="analysis-number">
+                MODEL COMPARISON
+            </div>
+
+            <h3>Prediction Agreement</h3>
+
+            <div class="analysis-details">
+
+                Mathematical Prediction:
+
+                <strong>
+
+                    {{ result.model_agreement.mathematical_prediction
+                       if result else "--" }}
+
+                </strong>
+
+            </div>
+
+            <div class="analysis-details">
+
+                CNN Prediction:
+
+                <strong>
+
+                    {{ result.model_agreement.cnn_prediction
+                       if result else "--" }}
+
+                </strong>
+
+            </div>
+
+            <div class="analysis-details">
+
+                Agreement Status:
+
+                <strong>
+
+                    {{ result.model_agreement.status
+                       if result else "--" }}
+
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- DISCLAIMER -->
+
+        <div class="analysis-disclaimer">
+
+            <span>ⓘ</span>
+
+            The displayed evidence percentages are model
+            scores and weighted support values. They should
+            not be interpreted as calibrated probabilities
+            unless a separate probability-calibration
+            procedure has been performed.
+
+            PixelProof provides an experimental
+            classification and does not guarantee
+            image authenticity.
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="section-heading">
+
+            <a href="/#detector" class="primary-button">
+                Analyse Another Image →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            PixelProof
+        </div>
+
+        <p>
+            AI-Generated Image Detection Using Deep Learning
+        </p>
+
+        <p class="copyright">
+            © 2026 PixelProof | Academic Project
+        </p>
+
+    </footer>
+
+</body>
+</html>

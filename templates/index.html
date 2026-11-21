@@ -1,0 +1,1032 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PixelProof | AI Image Detection</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================= NAVIGATION BAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            PixelProof
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#detector">AI Detector</a>
+            <a href="#analysis">Analysis</a>
+            <a href="#about">About</a>
+        </div>
+
+        <a href="#detector" class="nav-button">
+            Try Detector ↗
+        </a>
+
+    </nav>
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                ✨ POWERED BY DEEP LEARNING
+            </div>
+
+            <h1>
+                Discover What's <br>
+                <span>Real or AI.</span>
+            </h1>
+
+            <p>
+                Uncover the truth behind every image.
+                PixelProof combines mathematical image analysis,
+                eight individual statistical and machine-learning
+                models, and a ResNet50 deep learning model
+                to investigate real and AI-generated images.
+            </p>
+
+            <a href="#detector" class="primary-button">
+                Start Image Analysis →
+            </a>
+
+            <div class="hero-stats">
+
+                <div>
+                    <h3>8</h3>
+                    <p>Mathematical Models</p>
+                </div>
+
+                <div>
+                    <h3>CNN</h3>
+                    <p>ResNet50 Detection</p>
+                </div>
+
+                <div>
+                    <h3>Hybrid</h3>
+                    <p>Combined Prediction</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Hero Visual -->
+
+        <div class="hero-visual">
+
+            <div class="glow-circle"></div>
+
+            <div class="visual-card">
+
+                <div class="scan-header">
+                    <span>IMAGE SCANNING</span>
+                    <span class="live-dot">● SYSTEM READY</span>
+                </div>
+
+                <div class="scan-image">
+
+                    <div class="scan-symbol">✧</div>
+
+                    <div class="scan-line"></div>
+
+                    <span>AI VISION SYSTEM</span>
+
+                </div>
+
+                <div class="scan-footer">
+                    <span>Neural Network</span>
+                    <span>Ready to analyse</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= IMAGE DETECTOR SECTION ================= -->
+
+    <section class="detector-section" id="detector">
+
+        <div class="section-heading">
+
+            <div class="tag">
+                INTELLIGENT IMAGE ANALYSIS
+            </div>
+
+            <h2>
+                Test Your <span>Image</span>
+            </h2>
+
+            <p>
+                Upload an image and let PixelProof examine
+                its mathematical and visual characteristics.
+            </p>
+
+        </div>
+
+
+        <div class="detector-card">
+
+            <!-- Upload Area -->
+
+            <div class="upload-area" id="dropArea">
+
+                <input
+                    type="file"
+                    id="imageInput"
+                    accept="image/png, image/jpeg, image/jpg"
+                    hidden
+                >
+
+                <div id="uploadContent">
+
+                    <div class="upload-icon">
+                        ↑
+                    </div>
+
+                    <h3>Drop your image here</h3>
+
+                    <p>
+                        or click below to browse your files
+                    </p>
+
+                    <button
+                        type="button"
+                        class="browse-button"
+                        id="browseButton"
+                    >
+                        Browse Image
+                    </button>
+
+                    <div class="file-info">
+                        Supports JPG, JPEG and PNG | Maximum 10 MB
+                    </div>
+
+                </div>
+
+
+                <!-- Image Preview -->
+
+                <div class="preview-area" id="previewArea">
+
+                    <img
+                        id="imagePreview"
+                        alt="Selected image preview"
+                    >
+
+                    <div class="preview-details">
+
+                        <p id="fileName">
+                            Selected image
+                        </p>
+
+                        <button
+                            type="button"
+                            id="removeButton"
+                        >
+                            ✕ Remove Image
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Analyse Button -->
+
+            <button
+                class="analyse-button"
+                id="analyseButton"
+                type="button"
+                disabled
+            >
+                ✦ Analyse Image
+            </button>
+
+
+            <!-- Status Message -->
+
+            <p
+                class="status-message"
+                id="statusMessage"
+                aria-live="polite"
+            >
+                Select an image to begin.
+            </p>
+
+
+            <!-- ================= FINAL RESULT ================= -->
+
+            <div class="result-panel" id="resultPanel">
+
+                <div class="result-icon">
+                    ✧
+                </div>
+
+                <h3>AI Detection Result</h3>
+
+                <p id="resultText">
+                    Your final prediction will appear here.
+                </p>
+
+                <div class="confidence-bar">
+
+                    <div id="confidenceFill"></div>
+
+                </div>
+
+                <p id="confidenceText">
+                    Final hybrid evidence will appear here.
+                </p>
+
+                <span class="demo-note">
+                    The final result combines mathematical
+                    ensemble analysis and ResNet50 CNN evidence.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- COMPLETE PREDICTION DASHBOARD                     -->
+        <!-- ================================================= -->
+
+        <div class="analysis-dashboard" id="predictionDashboard">
+
+            <div class="section-heading">
+
+                <div class="tag">
+                    PIXELPROOF PREDICTION SYSTEM
+                </div>
+
+                <h2>
+                    Complete <span>Detection Report</span>
+                </h2>
+
+                <p>
+                    Explore the results produced by individual
+                    models, the mathematical ensemble,
+                    and the deep learning model.
+                </p>
+
+            </div>
+
+
+            <!-- ================= INDIVIDUAL MODELS ================= -->
+
+            <div class="analysis-card prediction-section">
+
+                <div class="analysis-number">
+                    PREDICTION STAGE 01
+                </div>
+
+                <h3>
+                    Individual Mathematical Model Results
+                </h3>
+
+                <p>
+                    Eight models independently evaluate the
+                    mathematical characteristics of the image.
+                </p>
+
+                <div class="table-responsive">
+
+                    <table id="individualModelsTable">
+
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>FAKE Evidence</th>
+                                <th>REAL Evidence</th>
+                                <th>Weight</th>
+                                <th>Prediction</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="individualModelResults">
+
+                            <tr>
+                                <td colspan="5">
+                                    Individual model results
+                                    will appear after analysis.
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="analysis-details" id="individualModelSummary">
+                    Individual model summary will appear here.
+                </div>
+
+            </div>
+
+
+            <!-- ================= MATHEMATICAL ENSEMBLE ================= -->
+
+            <div class="analysis-card prediction-section">
+
+                <div class="analysis-number">
+                    PREDICTION STAGE 02
+                </div>
+
+                <h3>
+                    Mathematical Ensemble Prediction
+                </h3>
+
+                <p>
+                    The eight individual model outputs are
+                    combined using validation-based weights
+                    and weighted soft voting.
+                </p>
+
+                <div class="prediction-metrics">
+
+                    <div class="metric-box">
+                        <h4>REAL Support</h4>
+
+                        <div
+                            class="metric-value"
+                            id="mathRealSupport"
+                        >
+                            --
+                        </div>
+                    </div>
+
+                    <div class="metric-box">
+                        <h4>FAKE Support</h4>
+
+                        <div
+                            class="metric-value"
+                            id="mathFakeSupport"
+                        >
+                            --
+                        </div>
+                    </div>
+
+                    <div class="metric-box">
+                        <h4>Threshold</h4>
+
+                        <div
+                            class="metric-value"
+                            id="mathThreshold"
+                        >
+                            --
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="analysis-details">
+
+                    Mathematical Prediction:
+
+                    <strong id="mathPrediction">
+                        Waiting for analysis
+                    </strong>
+
+                </div>
+
+                <p class="demo-note">
+                    The support percentages represent weighted
+                    model evidence and are not calibrated probabilities.
+                </p>
+
+            </div>
+
+
+            <!-- ================= CNN PREDICTION ================= -->
+
+            <div class="analysis-card prediction-section">
+
+                <div class="analysis-number">
+                    PREDICTION STAGE 03
+                </div>
+
+                <h3>
+                    ResNet50 Deep Learning Prediction
+                </h3>
+
+                <p>
+                    The trained ResNet50 CNN independently
+                    classifies the uploaded image.
+                </p>
+
+                <div class="prediction-metrics">
+
+                    <div class="metric-box">
+                        <h4>REAL Evidence</h4>
+
+                        <div
+                            class="metric-value"
+                            id="cnnRealEvidence"
+                        >
+                            --
+                        </div>
+                    </div>
+
+                    <div class="metric-box">
+                        <h4>FAKE Evidence</h4>
+
+                        <div
+                            class="metric-value"
+                            id="cnnFakeEvidence"
+                        >
+                            --
+                        </div>
+                    </div>
+
+                    <div class="metric-box">
+                        <h4>Threshold</h4>
+
+                        <div
+                            class="metric-value"
+                            id="cnnThreshold"
+                        >
+                            --
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="analysis-details">
+
+                    CNN Prediction:
+
+                    <strong id="cnnPrediction">
+                        Waiting for analysis
+                    </strong>
+
+                </div>
+
+                <div class="analysis-details" id="cnnDetails">
+                    CNN model information will appear here.
+                </div>
+
+            </div>
+
+
+            <!-- ================= HYBRID PREDICTION ================= -->
+
+            <div class="analysis-card prediction-section hybrid-result-card">
+
+                <div class="analysis-number">
+                    PREDICTION STAGE 04
+                </div>
+
+                <h3>
+                    Final Hybrid Prediction
+                </h3>
+
+                <p>
+                    The mathematical ensemble and ResNet50 CNN
+                    results are combined to produce the final
+                    PixelProof classification.
+                </p>
+
+                <div class="prediction-metrics">
+
+                    <div class="metric-box">
+                        <h4>REAL Evidence</h4>
+
+                        <div
+                            class="metric-value"
+                            id="hybridRealEvidence"
+                        >
+                            --
+                        </div>
+                    </div>
+
+                    <div class="metric-box">
+                        <h4>FAKE Evidence</h4>
+
+                        <div
+                            class="metric-value"
+                            id="hybridFakeEvidence"
+                        >
+                            --
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="analysis-details">
+
+                    Final Hybrid Verdict:
+
+                    <strong id="hybridPrediction">
+                        Waiting for analysis
+                    </strong>
+
+                </div>
+
+                <div class="analysis-details">
+
+                    Model Agreement:
+
+                    <strong id="modelAgreement">
+                        Waiting for analysis
+                    </strong>
+
+                </div>
+
+                <p class="demo-note">
+                    The hybrid evidence score is a weighted
+                    combination of two model outputs, not
+                    a calibrated probability.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- MATHEMATICAL IMAGE ANALYSIS DASHBOARD             -->
+        <!-- ================================================= -->
+
+        <div
+            class="analysis-dashboard"
+            id="analysis"
+        >
+
+            <div class="section-heading">
+
+                <div class="tag">
+                    MATHEMATICAL IMAGE PROCESSING
+                </div>
+
+                <h2>
+                    Image <span>Analysis Report</span>
+                </h2>
+
+                <p>
+                    Explore the mathematical characteristics
+                    of your uploaded image.
+                </p>
+
+            </div>
+
+
+            <div class="analysis-grid">
+
+
+                <!-- FOURIER TRANSFORM -->
+
+                <div class="analysis-card">
+
+                    <div class="analysis-number">
+                        MODULE 01
+                    </div>
+
+                    <h3>
+                        Fourier Transform Analysis
+                    </h3>
+
+                    <p>
+                        Frequency domain analysis of the image.
+                    </p>
+
+                    <img
+                        id="fourierImage"
+                        alt="Fourier frequency spectrum visualization"
+                    >
+
+                    <div
+                        id="fourierDetails"
+                        class="analysis-details"
+                    >
+                        Fourier analysis results will appear here.
+                    </div>
+
+                </div>
+
+
+                <!-- CORRELATION ANALYSIS -->
+
+                <div class="analysis-card">
+
+                    <div class="analysis-number">
+                        MODULE 02
+                    </div>
+
+                    <h3>
+                        Correlation Analysis
+                    </h3>
+
+                    <p>
+                        Analysis of relationships between
+                        neighbouring image pixels.
+                    </p>
+
+                    <img
+                        id="correlationImage"
+                        alt="Pixel correlation heatmap"
+                    >
+
+                    <div
+                        id="correlationDetails"
+                        class="analysis-details"
+                    >
+                        Correlation analysis results will appear here.
+                    </div>
+
+                </div>
+
+
+                <!-- SPATIAL STRUCTURE ANALYSIS -->
+
+                <div class="analysis-card">
+
+                    <div class="analysis-number">
+                        MODULE 03
+                    </div>
+
+                    <h3>
+                        Stereogram / Spatial Analysis
+                    </h3>
+
+                    <p>
+                        Experimental analysis of spatial
+                        structure and edge consistency.
+                    </p>
+
+                    <img
+                        id="spatialImage"
+                        alt="Spatial structure and edge map"
+                    >
+
+                    <div
+                        id="spatialDetails"
+                        class="analysis-details"
+                    >
+                        Spatial analysis results will appear here.
+                    </div>
+
+                </div>
+
+
+                <!-- DEPTH ESTIMATION -->
+
+                <div class="analysis-card">
+
+                    <div class="analysis-number">
+                        MODULE 04
+                    </div>
+
+                    <h3>
+                        AI-Based Depth Estimation
+                    </h3>
+
+                    <p>
+                        Single-image relative depth estimation
+                        using the pretrained Depth Anything V2 model.
+                    </p>
+
+                    <img
+                        id="depthImage"
+                        alt="Estimated depth map"
+                    >
+
+                    <div
+                        class="analysis-details"
+                        id="depthDetails"
+                    >
+                        Depth estimation results will appear here.
+                    </div>
+
+                </div>
+
+
+                <!-- CNN CLASSIFICATION -->
+
+                <div class="analysis-card cnn-card">
+
+                    <div class="analysis-number">
+                        MODULE 05
+                    </div>
+
+                    <h3>
+                        Deep Learning CNN
+                    </h3>
+
+                    <p>
+                        Image classification using the trained
+                        ResNet50 Convolutional Neural Network.
+                    </p>
+
+                    <div class="cnn-placeholder">
+
+                        <div class="cnn-icon">
+                            ✦
+                        </div>
+
+                        <h3>
+                            CNN Prediction
+                        </h3>
+
+                        <p id="cnnAnalysisStatus">
+                            CNN prediction will appear
+                            in the detection report.
+                        </p>
+
+                    </div>
+
+                    <div class="analysis-details">
+                        CNN Classification:
+
+                        <strong id="cnnAnalysisPrediction">
+                            Not available yet
+                        </strong>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- Analysis Disclaimer -->
+
+            <div class="analysis-disclaimer">
+
+                <span>ⓘ</span>
+
+                These mathematical visualizations are
+                experimental image-analysis features.
+                They do not independently prove whether
+                an image is real or AI-generated.
+
+                The spatial analysis displays image gradients
+                and edges, not a true stereoscopic depth map.
+                Depth Anything V2 provides relative depth,
+                not physical distance measurements.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TECHNOLOGY SECTION ================= -->
+
+    <section class="technology-section" id="about">
+
+        <div class="section-heading">
+
+            <div class="tag">
+                OUR TECHNOLOGY
+            </div>
+
+            <h2>
+                How Does It <span>Work?</span>
+            </h2>
+
+            <p>
+                PixelProof explores mathematical,
+                statistical, machine-learning and
+                deep-learning techniques for image analysis.
+            </p>
+
+        </div>
+
+
+        <div class="technology-grid">
+
+
+            <div class="tech-card">
+
+                <div class="tech-icon purple">
+                    ◈
+                </div>
+
+                <h3>
+                    Fourier Transform
+                </h3>
+
+                <p>
+                    Examines image frequency patterns
+                    and spectral information using
+                    two-dimensional Fourier Transform.
+                </p>
+
+            </div>
+
+
+            <div class="tech-card">
+
+                <div class="tech-icon blue">
+                    ⌘
+                </div>
+
+                <h3>
+                    Correlation Analysis
+                </h3>
+
+                <p>
+                    Studies relationships between
+                    neighbouring image pixels and
+                    their statistical patterns.
+                </p>
+
+            </div>
+
+
+            <div class="tech-card">
+
+                <div class="tech-icon pink">
+                    ◎
+                </div>
+
+                <h3>
+                    Spatial and Depth Analysis
+                </h3>
+
+                <p>
+                    Explores spatial structure,
+                    gradient information and
+                    relative depth characteristics.
+                </p>
+
+            </div>
+
+
+            <div class="tech-card">
+
+                <div class="tech-icon green">
+                    ✧
+                </div>
+
+                <h3>
+                    Deep Learning CNN
+                </h3>
+
+                <p>
+                    Uses a trained ResNet50 network
+                    to learn visual features and
+                    classify real and AI-generated images.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= WORKFLOW SECTION ================= -->
+
+    <section class="technology-section">
+
+        <div class="section-heading">
+
+            <div class="tag">
+                SIMPLE WORKFLOW
+            </div>
+
+            <h2>
+                How to <span>Use PixelProof</span>
+            </h2>
+
+            <p>
+                Follow these simple steps to analyse an image.
+            </p>
+
+        </div>
+
+
+        <div class="technology-grid">
+
+            <div class="tech-card">
+
+                <div class="tech-icon purple">01</div>
+
+                <h3>Upload Image</h3>
+
+                <p>
+                    Select a JPG, JPEG or PNG image
+                    from your device.
+                </p>
+
+            </div>
+
+
+            <div class="tech-card">
+
+                <div class="tech-icon blue">02</div>
+
+                <h3>Image Processing</h3>
+
+                <p>
+                    The uploaded image is prepared
+                    for mathematical analysis and
+                    deep learning prediction.
+                </p>
+
+            </div>
+
+
+            <div class="tech-card">
+
+                <div class="tech-icon pink">03</div>
+
+                <h3>Model Analysis</h3>
+
+                <p>
+                    Eight mathematical models and
+                    a ResNet50 CNN independently
+                    examine the image.
+                </p>
+
+            </div>
+
+
+            <div class="tech-card">
+
+                <div class="tech-icon green">04</div>
+
+                <h3>Hybrid Prediction</h3>
+
+                <p>
+                    Mathematical ensemble and CNN
+                    evidence are combined to produce
+                    the final classification.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            PixelProof
+        </div>
+
+        <p>
+            AI-Generated Image Detection Using Deep Learning
+        </p>
+
+        <p class="copyright">
+            © 2026 PixelProof | Academic Project
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <!-- Dashboard must load before the main script -->
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
